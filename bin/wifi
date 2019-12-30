@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+
+ifconfig $instance 2> /dev/null | grep 'inet ' | cut -d ' ' -f10
