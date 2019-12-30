@@ -22,7 +22,7 @@ Dependencies:
 	~ screen
 
 Almost all dependencies might be
- replaced by you with another.
+ replaced by you with other.
 
 Instalation:
 	1) Install all dependencies
