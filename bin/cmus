@@ -8,7 +8,7 @@
 ###############################################################################################################
 
 stat=$(cmus-remote -Q 2> /dev/null | grep status | cut -d ' ' -f2-)
-songfile=${$(cmus-remote -Q 2> /dev/null | grep file | rev | cut -d '/' -f1 | rev)/".mp3"/""}
+songfile=$(cmus-remote -Q 2> /dev/null | grep file | rev | cut -d '/' -f1 | rev | sed "s/.mp3//")
 artist=$(echo $songfile | cut -d '-' -f1)
 song=$(echo $songfile | cut -d '-' -f2-)
 if [[ $stat == 'playing' ]]; then

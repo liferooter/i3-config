@@ -1,5 +1,7 @@
 set $mod Mod4
 
+set $TERMINAL kitty
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -10,7 +12,7 @@ font pango:Noto Sans 12, Icons 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+q kill
@@ -166,11 +168,11 @@ bindsym XF86MonBrightnessUp exec xbacklight + 10 && pkill --signal  SIGRTMIN+14 
 bindsym XF86MonBrightnessDown exec xbacklight - 10  && pkill --signal  SIGRTMIN+14 i3blocks
 # Pulse Audio controls
 #increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id /bin/bash "~/.i3/bin/volume.sh" up
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pulseaudio-ctl up || pactl set-sink-volume 0 -- +5% ; pkill --signal SIGRTMIN+12 i3blocks"
 #decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id /bin/bash "~/.i3/bin/volume.sh" down
+bindsym XF86AudioLowerVolume exec --no-startup-id "pulseaudio-ctl down || pactl set-sink-volume 0 -- -5% ; pkill --signal SIGRTMIN+12 i3blocks"
 # mute sound
-bindsym XF86AudioMute exec --no-startup-id /bin/bash "~/.i3/bin/volume.sh" mute
+bindsym XF86AudioMute exec --no-startup-id "pulseaudio-ctl mute || pactl set-sink-mute 0 toggle ; pkill --signal SIGRTMIN+12 i3blocks"
 # Next Song
 bindsym XF86AudioNext exec --no-startup-id cmus-remote --next && pkill --signal SIGRTMIN+13 i3blocks
 # Prev Song
@@ -178,7 +180,8 @@ bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev && pkill --signal 
 # Play Pause
 bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal SIGRTMIN+13 i3blocks
 # Screenshot
-bindsym Print exec teiler
+bindsym Print exec "mkdir ~/Screenshots/ 2> /dev/null ; scrot ~/Screenshots/SCREENSHOT.png"
+bindsym Shift+Print exec "mkdir ~/Screenshots/ 2> /dev/null  ; scrot -s ~/Screenshots/SCREENSHOT.png"
 # switch workspace
 bindsym $mod+comma workspace prev
 bindsym $mod+period workspace next
@@ -198,10 +201,10 @@ bindsym $mod+Alt_R mode "$mode_system"
 
 # run special warning script
 exec --no-startup-id ~/.i3/bin/i3nag.sh
-# Wallpaper Script
-exec --no-startup-id ~/.i3/bin/wallpaper.sh
 # Network Applet
 exec --no-startup-id nm-applet
+# Redshift Applet
+exec --no-startup-id redshift-gtk
 
 # Workspace music
 bindsym $mod+m workspace "♪"

@@ -20,6 +20,7 @@ Dependencies:
 	~ xkblayout
 	~ net-tools
 	~ screen
+	~ scrot
 
 Almost all dependencies might be
  replaced by you with another.
