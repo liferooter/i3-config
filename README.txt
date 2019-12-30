@@ -1,3 +1,5 @@
+This i3 config is based on https://github.com/yashsriv/i3-config.
+
 Dependencies:
 	~ i3 of course :)
 	~ i3gaps
