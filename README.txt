@@ -1,3 +1,5 @@
+This i3 config is based on https://github.com/yashsriv/i3-config.
+
 Dependencies:
 	~ i3 of course :)
 	~ i3gaps
@@ -23,7 +25,7 @@ Dependencies:
 	~ scrot
 
 Almost all dependencies might be
- replaced by you with another.
+ replaced by you with other.
 
 Instalation:
 	1) Install all dependencies
