@@ -2,7 +2,7 @@
 
 This i3 config is based on https://github.com/yashriv/i3-config
 
-![screenshot](https://raw.githubusercontent.com/liferooter/i3-config/master/master/Screenshot.png)
+![screenshot](https://raw.githubusercontent.com/liferooter/i3-config/master/Screenshot.png)
 
 
 
