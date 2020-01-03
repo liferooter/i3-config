@@ -19,7 +19,7 @@ bindsym $mod+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi"
-bindsym $mod+Shift+d exec --no-startup-id rofi -show window
+bindsym $mod+Shift+d exec --no-startup-id "rofi -combi-modi drun,run -show combi -run-command 'gksudo {cmd}'"
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # change focus
@@ -182,6 +182,8 @@ bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause && pkill --signal
 # Screenshot
 bindsym Print exec "mkdir ~/Screenshots/ 2> /dev/null ; scrot ~/Screenshots/SCREENSHOT.png"
 bindsym Shift+Print exec "mkdir ~/Screenshots/ 2> /dev/null  ; scrot -s ~/Screenshots/SCREENSHOT.png"
+# Switch wallpaper
+bindsym exec --no-startup-id pkill --signal SIGRTMIN+15 i3blocks
 # switch workspace
 bindsym $mod+comma workspace prev
 bindsym $mod+period workspace next
